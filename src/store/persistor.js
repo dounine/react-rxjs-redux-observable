@@ -11,13 +11,13 @@ import actionTypes from "../actions/types";
 import reducers from "../reducers/index";
 import { composeWithDevTools } from 'redux-devtools-extension';
 const epicMiddleware = createEpicMiddleware(combineEpics(...epics));
-const persistConfig = {
+const rootPersistConfig = {
     transforms: [immutableTransform()],
     key:'root',
     storage
 };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(rootPersistConfig, reducers);
 const composeEnhancers = composeWithDevTools({
     // Specify here name, actionsBlacklist, actionsCreators and other options if needed
 });
