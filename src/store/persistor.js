@@ -9,6 +9,7 @@ import storage from 'redux-persist/lib/storage'
 import ApiCode from "../cons/ApiCode";
 import actionTypes from "../actions/types";
 import reducers from "../reducers/index";
+import { composeWithDevTools } from 'redux-devtools-extension';
 const epicMiddleware = createEpicMiddleware(combineEpics(...epics));
 const persistConfig = {
     transforms: [immutableTransform()],
@@ -17,9 +18,11 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
-
+const composeEnhancers = composeWithDevTools({
+    // Specify here name, actionsBlacklist, actionsCreators and other options if needed
+});
 export default () => {
-    let store = createStore(persistedReducer, applyMiddleware(reduxLogger,serviceReduxMiddleware,epicMiddleware));
+    let store = createStore(persistedReducer, composeEnhancers(applyMiddleware(reduxLogger,serviceReduxMiddleware,epicMiddleware)));
     let persistor = persistStore(store);
     return {store, persistor}
 }

@@ -2,7 +2,7 @@
   "name": "react-rxjs-redux-observable",
   "repository": "https://github.com/dounine/react-rxjs-redux-observable",
   "version": "1.0.0",
-  "author":"lake",
+  "author": "lake",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
@@ -26,5 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.2"
   }
 }
