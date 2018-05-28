@@ -25,7 +25,7 @@ class UserList extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        ...state,
+        ...state.github
     }
 }
 

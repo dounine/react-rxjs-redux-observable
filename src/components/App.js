@@ -19,7 +19,7 @@ class User extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        ...state,
+        username:state.search_username
     }
 }
 
